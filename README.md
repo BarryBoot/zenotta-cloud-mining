@@ -1,0 +1,1 @@
+# zenotta-cloud-mining
