@@ -4,7 +4,7 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
   location = "us-central1"
 
   network    = google_compute_network.zenotta-mining-network.id
-  subnetwork = google_compute_subnetwork.zenotta-mining-network.id
+  #subnetwork = google_compute_subnetwork.zenotta-mining-network.id
 
   node_config {
     
@@ -21,7 +21,7 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
     }
 
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    service_account = google_service_account.default.email
+    service_account = google_service_account.zenotta-mining-service-account.email
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
