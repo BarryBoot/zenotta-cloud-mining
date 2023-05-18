@@ -1,4 +1,4 @@
-resource "google_project" "my_project" {
+resource "google_project" "zenotta-mining" {
   name       = "Zenotta Mining"
   project_id = "zenotta-mining"
   auto_create_network = false
