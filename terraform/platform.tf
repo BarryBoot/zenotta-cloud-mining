@@ -1,9 +1,15 @@
+resource "google_project" "my_project" {
+  name       = "Zenotta Mining"
+  project_id = "zenotta-mining"
+  auto_create_network = false
+}
+
 data "google_iam_policy" "zenotta-mining-iam-policy" {
   binding {
     role = "roles/iam.serviceAccountUser"
 
     members = [
-      "user:barry.botha@gmail.com",
+      "serviceAccount:{barry.botha@gmail.com}",
     ]
   }
 }
