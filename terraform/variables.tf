@@ -1,3 +1,3 @@
-variable "GOOGLE_CREADENTIALS"{
+variable "GOOGLE_CREDENTIALS"{
     type = string
 }
