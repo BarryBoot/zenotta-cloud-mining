@@ -1,6 +1,6 @@
 provider "google" {
   project = "zenotta-cloud-mining"
-  region  = var.regions
+  region  = var.region
   zone    = var.zone
 }
 
