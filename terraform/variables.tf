@@ -34,5 +34,5 @@ variable "location" {
 
 variable "node_locations" {
     type = list
-    default = ["us-central1-a", "us_central1-b"]
+    default = ["us-central1-a", "us-central1-b"]
 }
