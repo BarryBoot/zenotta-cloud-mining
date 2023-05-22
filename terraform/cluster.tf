@@ -6,12 +6,13 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
   network = google_compute_network.zenotta-mining-network.id
   #subnetwork = google_compute_subnetwork.zenotta-mining-network.id
 
+  initial_node_count = 1
+
   node_config {
 
     preemptible  = true
     #machine_type = "a2-highgpu-1g"
     machine_type = "g2-standard-16"
-    initial_node_count = 1
 
     guest_accelerator {
       #type  = "nvidia-tesla-a100"
