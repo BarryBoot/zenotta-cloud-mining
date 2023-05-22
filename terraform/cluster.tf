@@ -10,13 +10,14 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
 
   node_config {
 
-    preemptible  = true
+    preemptible = true
     #machine_type = "a2-highgpu-1g"
     machine_type = "g2-standard-16"
+    project      = var.projectId
 
     guest_accelerator {
       #type  = "nvidia-tesla-a100"
-      type = "nvidia-tensor-l4"
+      type  = "nvidia-tensor-l4"
       count = 1
       gpu_sharing_config {
         gpu_sharing_strategy       = "TIME_SHARING"
