@@ -2,6 +2,7 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
 
   name     = "zenotta-mining-cluster"
   location = var.location
+  node_locations = var.node_locations
   project  = var.projectId
 
   network = google_compute_network.zenotta-mining-network.id
