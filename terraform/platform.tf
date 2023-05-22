@@ -21,6 +21,7 @@ resource "google_service_account" "zenotta-mining-service-account" {
 }
 
 resource "google_service_account" "zenotta-node-service-account" {
+  project  = var.projectId
   account_id   = "zenotta-node-service-account"
   display_name = "zenotta-node-service-account"
 }
