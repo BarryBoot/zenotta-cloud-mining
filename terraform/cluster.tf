@@ -25,9 +25,11 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
     }
 
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    service_account = google_service_account.zenotta-mining-service-account.email
+    service_account = google_service_account.zenotta-node-service-account.email
     oauth_scopes = [
-      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform",
+      "https://www.googleapis.com/auth/logging.write",
+      "https://www.googleapis.com/auth/monitoring"
     ]
 
   }
