@@ -18,7 +18,7 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
 
     guest_accelerator {
       #type  = "nvidia-tesla-a100"
-      type  = "nvidia-tensor-l4"
+      type  = "nvidia-l4"
       count = 1
       gpu_sharing_config {
         gpu_sharing_strategy       = "TIME_SHARING"
