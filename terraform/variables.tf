@@ -8,8 +8,8 @@ variable "project" {
 }
 
 variable "projectId" {
-    type = string
-    default = "zenotta-mining-387514"
+  type    = string
+  default = "zenotta-mining-387514"
 }
 
 variable "billingAccount" {
