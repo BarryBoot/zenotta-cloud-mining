@@ -2,6 +2,7 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
 
   name     = "zenotta-mining-cluster"
   location = var.location
+  project  = var.projectId
 
   network = google_compute_network.zenotta-mining-network.id
   #subnetwork = google_compute_subnetwork.zenotta-mining-network.id
@@ -13,7 +14,6 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
     preemptible = true
     #machine_type = "a2-highgpu-1g"
     machine_type = "g2-standard-16"
-    project      = var.projectId
 
     guest_accelerator {
       #type  = "nvidia-tesla-a100"
