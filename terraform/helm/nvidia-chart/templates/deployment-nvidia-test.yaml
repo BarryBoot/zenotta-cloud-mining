@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cuda-simple
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      app: cuda-simple
+  template:
+    metadata:
+      labels:
+        app: cuda-simple
+    spec:
+      nodeSelector:
+        cloud.google.com/gke-gpu-sharing-strategy: time-sharing
+        cloud.google.com/gke-max-shared-clients-per-gpu: "8"
+      containers:
+      - name: cuda-simple
+        image: nvidia/cuda:11.0.3-base-ubi7
+        command:
+        - bash
+        - -c
+        - |
+          /usr/local/nvidia/bin/nvidia-smi -L; sleep 300
+        resources:
+          limits:
+            nvidia.com/gpu: 1
