@@ -1,9 +1,9 @@
 resource "google_container_cluster" "zenotta-mining-cluster" {
 
-  name     = "zenotta-mining-cluster"
-  location = var.location
+  name           = "zenotta-mining-cluster"
+  location       = var.location
   node_locations = var.node_locations
-  project  = var.projectId
+  project        = var.projectId
 
   network = google_compute_network.zenotta-mining-network.id
   #subnetwork = google_compute_subnetwork.zenotta-mining-network.id
@@ -31,9 +31,22 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform",
       "https://www.googleapis.com/auth/logging.write",
-      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring",
+      "https://www.googleapis.com/auth/devstorage.read_only"
     ]
 
   }
 
 }
+
+# Install nVidia drivers
+
+data "http" "nvidia_driver_installer_manifest" {
+  url = "https://raw.githubusercontent.com/GoogleCloudPlatform/container-engine-accelerators/master/nvidia-driver-installer/cos/daemonset-preloaded.yaml"
+}
+
+resource "kubectl_manifest" "nvidia_driver_installer" {
+  yaml_body = data.http.nvidia_driver_installer_manifest.body
+}
+
+
