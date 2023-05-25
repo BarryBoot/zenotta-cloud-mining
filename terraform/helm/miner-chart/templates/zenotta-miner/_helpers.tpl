@@ -30,7 +30,7 @@ If release name contains chart name it will be used as a full name.
 Create chart name and version as used by the chart label.
 */}}
 
-{{- define "api.chart" -}}
+{{- define "miner.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -38,9 +38,9 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 
-{{- define "api.labels" -}}
-helm.sh/chart: {{ include "api.chart" . }}
-{{ include "api.selectorLabels" . }}
+{{- define "miner.labels" -}}
+helm.sh/chart: {{ include "miner.chart" . }}
+{{ include "miner.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -51,6 +51,6 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 Selector labels
 */}}
 
-{{- define "api.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "api.fullname" . }}
+{{- define "miner.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "miner.fullname" . }}
 {{- end }}
