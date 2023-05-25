@@ -1,4 +1,3 @@
-
 # data "google_client_config" "client" {}
 
 # data "google_container_cluster" "credentials" {
