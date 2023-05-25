@@ -4,4 +4,4 @@ kind: ConfigMap
 metadata:
   name: {{ include "miner.fullname" . }}-configmap
 data:
-  RUST_LOG: {{ .Values.miner.configMap.RUST_LOG | quote }}
+  RUST_LOG: {{ (.Values.miner).configMap.RUST_LOG | quote }}
