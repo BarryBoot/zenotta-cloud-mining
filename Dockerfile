@@ -25,6 +25,5 @@ COPY --from=build /zenotta/target/release/node /usr/local/bin/
 COPY --from=build /etc/zenotta-miner-config.toml /etc/initial_block.json /etc/tls_certificates.json /etc/api_config.json /etc/
 
 ENV RUST_LOG=warp
-ENV CONFIG
 
 CMD ["node", "miner", "--config=/etc/zenotta-miner-config.toml", "--tls_config=/etc/tls_certificates.json", "--initial_block_config=/etc/initial_block.json", "--api_config=/etc/api_config.json"]
