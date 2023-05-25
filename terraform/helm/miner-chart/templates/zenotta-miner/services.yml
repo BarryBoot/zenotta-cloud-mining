@@ -1,0 +1,16 @@
+---
+# Service for the API Service
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ include "miner.fullname" . }}-service
+  labels: 
+    {{- include "miner.labels" . | nindent 4 }}
+spec:
+  selector:
+    {{- include "miner.selectorLabels" . | nindent 4 }}
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

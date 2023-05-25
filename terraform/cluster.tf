@@ -12,7 +12,10 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
 
   node_config {
 
+    # turn this to false for production
+    # for now it saves money
     preemptible = true
+
     #machine_type = "a2-highgpu-1g"
     machine_type = "g2-standard-16"
 

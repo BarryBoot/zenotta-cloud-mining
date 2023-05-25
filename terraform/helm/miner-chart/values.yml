@@ -1,0 +1,14 @@
+service_account: "zenotta-node-service-account"
+dockercfg: ""
+
+miner:
+  image:
+    repository: ghcr.io/barryboot/zenotta-cloud-mining
+    tag: main
+    replicas: 1
+  limits:
+    memory: 7Gi
+    cpu: 1750m
+  requests:
+    memory: 6Gi
+    cpu: 1500m
