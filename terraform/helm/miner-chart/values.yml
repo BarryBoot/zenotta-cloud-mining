@@ -2,6 +2,7 @@ service_account: "zenotta-node-service-account"
 dockercfg: ""
 
 miner:
+  replicaCount: 1
   image:
     repository: ghcr.io/barryboot/zenotta-cloud-mining
     tag: main
