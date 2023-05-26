@@ -11,3 +11,5 @@ miner:
   requests:
     memory: 6Gi
     cpu: 1500m
+  configMap:
+    RUST_LOG: "warp"
