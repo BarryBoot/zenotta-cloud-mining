@@ -26,7 +26,7 @@ resource "helm_release" "nvidia-drivers-release" {
   chart = "./helm/nvidia-chart"
 }
 
-resource "helm_release" "zenotta-miner-release" {
-  name  = "zenotta-miner-release"
-  chart = "./helm/miner-chart"
-}
+# resource "helm_release" "zenotta-miner-release" {
+#   name  = "zenotta-miner-release"
+#   chart = "./helm/miner-chart"
+# }
