@@ -18,8 +18,8 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
 
 }
 
-resource "google_container_node_pool" "primary_preemptible_nodes" {
-  name       = "zenotta-mining-node-pool-L4-8"
+resource "google_container_node_pool" "zenotta-mining-node-pool-L4" {
+  name       = "zenotta-mining-node-pool-L4"
   project    = var.projectId
   cluster    = google_container_cluster.zenotta-mining-cluster.id
   node_count = 1
