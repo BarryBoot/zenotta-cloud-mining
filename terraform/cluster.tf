@@ -6,7 +6,7 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
   project        = var.projectId
 
   network = google_compute_network.zenotta-mining-network.id
-  #subnetwork = google_compute_subnetwork.zenotta-mining-network.id
+  subnetwork = google_compute_subnetwork.zenotta-mining-subnetwork.id
 
   remove_default_node_pool = true
   initial_node_count = 1
