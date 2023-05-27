@@ -8,8 +8,22 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
   network = google_compute_network.zenotta-mining-network.id
   #subnetwork = google_compute_subnetwork.zenotta-mining-network.id
 
+  remove_default_node_pool = true
   initial_node_count = 1
 
+  ip_allocation_policy {
+    cluster_secondary_range_name  = "pod-range"
+    services_secondary_range_name = "service-range"
+  }
+
+}
+
+resource "google_container_node_pool" "primary_preemptible_nodes" {
+  name       = "zenotta-mining-node-pool-L4-8"
+  project    = var.projectId
+  cluster    = google_container_cluster.zenotta-mining-cluster.id
+  node_count = 1
+  
   node_config {
 
     # turn this to false for production
@@ -39,7 +53,6 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
     ]
 
   }
-
 }
 
 
