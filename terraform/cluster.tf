@@ -5,15 +5,28 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
   node_locations = var.node_locations
   project        = var.projectId
 
-  network = google_compute_network.zenotta-mining-network.id
+  network    = google_compute_network.zenotta-mining-network.id
   subnetwork = google_compute_subnetwork.zenotta-mining-subnetwork.id
 
   remove_default_node_pool = true
-  initial_node_count = 1
+  initial_node_count       = 1
 
+  networking_mode = "VPC_NATIVE"
   ip_allocation_policy {
     cluster_secondary_range_name  = "pod-range"
     services_secondary_range_name = "service-range"
+  }
+
+  monitoring_config {
+    enable_components = [
+      "SYSTEM_COMPONENTS",
+      "APISERVER",
+      "CONTROLLER_MANAGER",
+      "SCHEDULER"
+    ]
+    managed_prometheus {
+      enabled = true
+    }
   }
 
 }
@@ -23,7 +36,7 @@ resource "google_container_node_pool" "zenotta-mining-node-pool-L4" {
   project    = var.projectId
   cluster    = google_container_cluster.zenotta-mining-cluster.id
   node_count = 1
-  
+
   node_config {
 
     # turn this to false for production
@@ -32,6 +45,12 @@ resource "google_container_node_pool" "zenotta-mining-node-pool-L4" {
 
     #machine_type = "a2-highgpu-1g"
     machine_type = "g2-standard-16"
+    disk_size_gb    = 100
+    disk_type    = "pd-standard"
+
+    gvnic {
+      enabled = true
+    }
 
     guest_accelerator {
       #type  = "nvidia-tesla-a100"
