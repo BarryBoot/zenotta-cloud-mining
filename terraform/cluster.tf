@@ -31,8 +31,8 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
 
 }
 
-resource "google_container_node_pool" "zenotta-mining-node-pool-L4" {
-  name       = "zenotta-mining-node-pool-L4"
+resource "google_container_node_pool" "zenotta-mining-node-pool-Lfour" {
+  name       = "zenotta-mining-node-pool-lfour"
   project    = var.projectId
   cluster    = google_container_cluster.zenotta-mining-cluster.id
   node_count = 1
