@@ -28,7 +28,7 @@ resource "helm_release" "nvidia-drivers-release" {
   depends_on = [google_container_cluster.zenotta-mining-cluster]
 }
 
-resource "helm_release" "pod-mpnitoring-release" {
+resource "helm_release" "pod-monitoring-release" {
   provider   = helm.zenotta-cluster
   name       = "pod-monitoring-release"
   chart      = "./helm/pod-monitoring-chart"

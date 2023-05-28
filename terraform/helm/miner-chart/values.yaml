@@ -1,4 +1,4 @@
-service_account: "zenotta-node-service-account"
+service_account: ""
 
 miner:
   replicaCount: 1
@@ -6,10 +6,10 @@ miner:
     repository: ghcr.io/barryboot/zenotta-cloud-mining
     tag: main
   limits:
-    memory: 7Gi
-    cpu: 1750m
-  requests:
     memory: 6Gi
     cpu: 1500m
+  requests:
+    memory: 5Gi
+    cpu: 1000m
   configMap:
     RUST_LOG: "warp"
