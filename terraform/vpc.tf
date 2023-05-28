@@ -18,7 +18,7 @@ resource "google_compute_subnetwork" "zenotta-mining-subnetwork" {
 
   secondary_ip_range {
     range_name    = "pod-range"
-    ip_cidr_range = "192.168.2.0/24"
+    ip_cidr_range = "192.168.64.0/22"
   }
 
 }
