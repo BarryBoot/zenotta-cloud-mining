@@ -13,11 +13,11 @@ provider "helm" {
     host                   = data.google_container_cluster.credentials.endpoint
     token                  = data.google_client_config.client.access_token
     cluster_ca_certificate = base64decode(google_container_cluster.zenotta-mining-cluster.master_auth.0.cluster_ca_certificate)
-    # exec {
-    #   api_version = "client.authentication.k8s.io/v1beta1"
-    #   command     = "gcloud"
-    #   args        = ["container", "get-credentials", google_container_cluster.zenotta-mining-cluster.name, "--region", var.region, "--project", var.projectId]
-    # }
+    exec {
+      api_version = "client.authentication.k8s.io/v1beta1"
+      command     = "gcloud"
+      args        = ["container", "get-credentials", google_container_cluster.zenotta-mining-cluster.name, "--region", var.region, "--project", var.projectId]
+    }
   }
 }
 
