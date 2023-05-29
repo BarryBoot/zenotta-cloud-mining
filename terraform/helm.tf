@@ -56,7 +56,11 @@ resource "helm_release" "zenotta-miner-release" {
   chart      = "./helm/miner-chart"
   set {
     name  = "miner.fullnameOverride"
-    value = "zentotta-miner-${count.index}"
+    value = "zenotta-miner-${count.index}"
+  }
+  set {
+    name = "miner.port"
+    value = "1234${count.index}"
   }
   depends_on = [google_container_cluster.zenotta-mining-cluster]
 }
