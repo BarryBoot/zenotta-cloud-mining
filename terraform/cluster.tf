@@ -49,7 +49,7 @@ resource "google_container_node_pool" "zenotta-mining-node-pool-Lfour" {
 
     #machine_type = "a2-highgpu-1g"
     machine_type = "g2-standard-16"
-    disk_size_gb    = 100
+    disk_size_gb = 100
     disk_type    = "pd-standard"
 
     gvnic {
