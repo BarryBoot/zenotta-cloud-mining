@@ -26,4 +26,4 @@ COPY ./conf/* /etc/.
 
 ENV RUST_LOG=info,debug
 
-CMD ["/zenotta/target/release/node", "miner", "--config=/etc/node_settings.toml", "--tls_config=/etc/tls_certificates.json", "--initial_block_config=/etc/initial_block.json", "--api_config=/etc/api_config.json", "--api_use_tls=0", "--with_user_index=0"]
+CMD ["/zenotta/target/release/node", "miner", "--config=/etc/node_settings.toml", "--tls_config=/etc/tls_certificates.json", "--initial_block_config=/etc/initial_block.json", "--api_config=/etc/api_config.json", "--api_use_tls=0", "--with_user_address=127.0.0.1:23460"]
