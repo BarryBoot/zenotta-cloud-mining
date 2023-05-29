@@ -12,8 +12,8 @@ RUN git clone https://github.com/Zenotta/keccak-prime.git /keccak-prime && git c
 RUN cargo build --release
 
 # Copy config as we're removing src
-RUN cp ./src/bin/initial_block.json ./src/bin/tls_certificates.json ./src/bin/api_config.json /etc/
-COPY zenotta-miner-config.toml /etc/zenotta-miner-config.toml
+# RUN cp ./src/bin/initial_block.json ./src/bin/tls_certificates.json ./src/bin/api_config.json /etc/
+# COPY zenotta-miner-config.toml /etc/zenotta-miner-config.toml
 
 # Remove src
 RUN rm -Rvf src
@@ -22,8 +22,8 @@ RUN rm -Rvf src
 FROM gcr.io/distroless/cc-debian11
 
 COPY --from=build /zenotta/target/release/node /usr/local/bin/
-COPY --from=build /etc/zenotta-miner-config.toml /etc/initial_block.json /etc/tls_certificates.json /etc/api_config.json /etc/
+COPY ./conf/* /etc/.
 
 ENV RUST_LOG=warp
 
-CMD ["node", "miner", "--config=/etc/zenotta-miner-config.toml", "--tls_config=/etc/tls_certificates.json", "--initial_block_config=/etc/initial_block.json", "--api_config=/etc/api_config.json"]
+CMD ["node", "miner", "--config=/etc/node_settings.toml", "--tls_config=/etc/tls_certificates.json", "--initial_block_config=/etc/initial_block.json", "--api_config=/etc/api_config.json"]
