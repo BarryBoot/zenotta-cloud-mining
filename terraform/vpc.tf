@@ -22,3 +22,29 @@ resource "google_compute_subnetwork" "zenotta-mining-subnetwork" {
   }
 
 }
+
+resource "google_compute_router" "zenotta-mining-router" {
+  name = "zenotta-minnig-router"
+  region = var.region
+  network = google_compute_network.zenotta-mining-network.id
+}
+
+resource "google_compute_address" "zenotta-mining-nat-addresses" {
+  name = "zenotta-minnig-nat-manual-ip"
+  region = var.region
+}
+
+resource "google_compute_router_nat" "router-nat" {
+  name = "zenotta-minnig-router-nat"
+  router = google_compute_router.zenotta-mining-router.name
+  region = var.region
+
+  nat_ip_allocate_option = "MANUAL_ONLY"
+  nat_ips = google_compute_address.zenotta-mining-nat-addresses.*.self_link
+
+  source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
+  subnetwork {
+    name = google_compute_subnetwork.zenotta-mining-subnetwork.id
+    source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
+  }
+}
