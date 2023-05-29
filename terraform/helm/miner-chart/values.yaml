@@ -1,4 +1,5 @@
 service_account: ""
+fullnameOverride: ""
 
 miner:
   replicaCount: 1

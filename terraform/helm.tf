@@ -50,8 +50,13 @@ resource "helm_release" "pod-monitoring-release" {
 }
 
 resource "helm_release" "zenotta-miner-release" {
+  count      = 8
   provider   = helm.zenotta-cluster
-  name       = "zenotta-miner-release"
+  name       = "zenotta-miner-release-${count.index}"
   chart      = "./helm/miner-chart"
+  set {
+    name  = "miner.fullnameOverride"
+    value = "zentotta-miner-${count.index}"
+  }
   depends_on = [google_container_cluster.zenotta-mining-cluster]
 }
