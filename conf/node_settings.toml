@@ -16,6 +16,6 @@ address = "34.209.131.212:12300"
 address = "127.0.0.1:12340"
 
 # Used to spin up a seperate user node thread
-[[user_nodes]]
-address = "127.0.0.1:12360"
+# [[user_nodes]]
+# address = "127.0.0.1:12360"
 

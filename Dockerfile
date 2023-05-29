@@ -19,11 +19,11 @@ RUN cargo build --release
 RUN rm -Rvf src
     
 # Use a multi-stage build and a distroless image for less attack vectors and a small image
-FROM gcr.io/distroless/cc-debian11
+#FROM gcr.io/distroless/cc-debian11
 
-COPY --from=build /zenotta/target/release/node /usr/local/bin/
+#COPY --from=build /zenotta/target/release/node /usr/local/bin/
 COPY ./conf/* /etc/.
 
 ENV RUST_LOG=info,debug
 
-CMD ["node", "miner", "--config=/etc/node_settings.toml", "--tls_config=/etc/tls_certificates.json", "--initial_block_config=/etc/initial_block.json", "--api_config=/etc/api_config.json", "--api_use_tls=0", "--with_user_index=0"]
+CMD ["/zenotta/target/release/node", "miner", "--config=/etc/node_settings.toml", "--tls_config=/etc/tls_certificates.json", "--initial_block_config=/etc/initial_block.json", "--api_config=/etc/api_config.json", "--api_use_tls=0", "--with_user_index=0"]
