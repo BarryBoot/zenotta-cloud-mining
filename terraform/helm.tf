@@ -19,6 +19,7 @@ provider "helm" {
       args        = ["container", "get-credentials", google_container_cluster.zenotta-mining-cluster.name, "--region", var.region, "--project", var.projectId]
     }
   }
+  depends_on = [google_container_cluster.credentials]
 }
 
 # output "node_pools" {
