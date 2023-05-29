@@ -15,4 +15,4 @@ miner:
     memory: 5Gi
     cpu: 1000m
   configMap:
-    RUST_LOG: "warp"
+    RUST_LOG: "info,debug"
