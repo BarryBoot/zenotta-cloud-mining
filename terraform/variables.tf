@@ -34,7 +34,7 @@ variable "location" {
 
 variable "node_locations" {
     type = list
-    default = ["us-central1-a"]
+    default = ["us-central1-a", "us-central1-b"]
     # add "us-central1-b" if we want another zone - it also support L4
 }
 
