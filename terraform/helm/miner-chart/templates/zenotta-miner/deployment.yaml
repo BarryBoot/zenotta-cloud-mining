@@ -26,7 +26,7 @@ spec:
         - name: {{ include "miner.fullname" . }}
           image: "{{ (.Values.miner).image.repository }}:{{ (.Values.miner).image.tag }}"
           command: 
-            - "node"
+            - "/zenotta/target/release/node"
             - "miner"
             - "--config=/etc/node_settings.toml"
             - "--tls_config=/etc/tls_certificates.json"

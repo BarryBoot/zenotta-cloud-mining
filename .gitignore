@@ -3,3 +3,4 @@
 GOOGLE_CREDENTIALS
 terraform/helm/examples/
 .DS_Store
+docker-compose.yml
