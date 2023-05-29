@@ -7,11 +7,13 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
 
   network    = google_compute_network.zenotta-mining-network.id
   subnetwork = google_compute_subnetwork.zenotta-mining-subnetwork.id
+  enable_shielded_nodes = true
 
   remove_default_node_pool = true
   initial_node_count       = 1
 
   networking_mode = "VPC_NATIVE"
+  
   ip_allocation_policy {
     cluster_secondary_range_name  = "pod-range"
     services_secondary_range_name = "service-range"
@@ -37,11 +39,13 @@ resource "google_container_node_pool" "zenotta-mining-node-pool-Lfour" {
   cluster    = google_container_cluster.zenotta-mining-cluster.id
   node_count = 1
 
+  network_config {
+    enable_private_nodes = true
+  }
+
   node_config {
 
-    # turn this to false for production
-    # for now it saves money
-    preemptible = true
+    preemptible = false
 
     #machine_type = "a2-highgpu-1g"
     machine_type = "g2-standard-16"
@@ -74,4 +78,6 @@ resource "google_container_node_pool" "zenotta-mining-node-pool-Lfour" {
   }
 }
 
-
+# output "zenotta-node-names" {
+#   value = [for zenotta-node-name in google_container_node_pool.zenotta-mining-node-pool-Lfour: zenotta-node-name.public_ip]
+# }

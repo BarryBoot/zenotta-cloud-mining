@@ -21,6 +21,20 @@ provider "helm" {
   }
 }
 
+# output "node_pools" {
+#   value = data.google_container_cluster.credentials.node_pool
+# }
+
+# output "instance_group_urls" {
+#   value = data.google_container_cluster.credentials.node_pool[0].instance_group_urls
+# }
+
+# data "kubernetes_nodes" "zenotta-miner-nodes" {}
+
+# output "zenotta-miner-node-ids" {
+#   value = [for node in data.kubernetes_nodes.zenotta-miner-nodes.nodes : node.spec.0.provider_id]
+# }
+
 resource "helm_release" "nvidia-drivers-release" {
   provider   = helm.zenotta-cluster
   name       = "nvidia-drivers-release"
