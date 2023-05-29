@@ -62,5 +62,9 @@ resource "helm_release" "zenotta-miner-release" {
     name = "miner.port"
     value = "1234${count.index}"
   }
+  set {
+    name = "miner.user_port"
+    value = "1236${count.index}"
+  }
   depends_on = [google_container_cluster.zenotta-mining-cluster]
 }

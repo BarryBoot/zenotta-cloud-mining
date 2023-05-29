@@ -5,6 +5,8 @@ miner:
   replicaCount: 1
   address: "127.0.0.1"
   port: 12340
+  user_address: "127.0.0.1"
+  user_port: 12360
   image:
     repository: ghcr.io/barryboot/zenotta-cloud-mining
     tag: main

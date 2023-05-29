@@ -33,7 +33,7 @@ spec:
             - "--initial_block_config=/etc/initial_block.json"
             - "--api_config=/etc/api_config.json"
             - "--api_use_tls=0"
-            - "--with_user_index=0"
+            - "--with_user_address={{ (.Values.miner).user_address }}:{{ (.Values.miner).user_port }}"
             - "--address={{ (.Values.miner).address }}:{{ (.Values.miner).port }}"
           resources:
             limits:
