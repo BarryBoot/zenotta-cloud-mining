@@ -39,9 +39,12 @@ spec:
             limits:
               memory: {{ (.Values.miner).limits.memory }}
               cpu: {{ (.Values.miner).limits.cpu }}
+              resources:
+              nvidia.com/gpu: 1
             requests:
               memory: {{ (.Values.miner).requests.memory }}
               cpu: {{ (.Values.miner).requests.cpu }}
+              nvidia.com/gpu: 1
           ports:
             - containerPort: 80
           imagePullPolicy: Always
