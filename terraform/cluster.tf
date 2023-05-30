@@ -31,6 +31,12 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
     }
   }
 
+  addons_config{
+    gce_persistent_disk_csi_driver_config {
+      enabled = true
+    }
+  }
+
 }
 
 resource "google_container_node_pool" "zenotta-mining-node-pool-Lfour" {

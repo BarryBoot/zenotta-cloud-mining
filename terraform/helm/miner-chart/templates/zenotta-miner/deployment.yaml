@@ -52,3 +52,10 @@ spec:
                 name: {{ include "miner.fullname" . }}-configmap
             - secretRef:
                 name: {{ include "miner.fullname" . }}-secret
+          volumeMounts:
+            - name: zenotta-wallet
+              mountPath: /zenotta/src/wallet
+      volumes:
+        - name: zenotta-wallet
+          persistentVolumeClaim:
+              claimName: {{ include "miner.fullname" . }}-pvc

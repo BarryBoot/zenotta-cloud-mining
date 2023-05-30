@@ -35,18 +35,11 @@ provider "helm" {
 #   value = [for node in data.kubernetes_nodes.zenotta-miner-nodes.nodes : node.spec.0.provider_id]
 # }
 
-resource "helm_release" "nvidia-drivers-release" {
+resource "helm_release" "zenotta-node-release" {
   provider   = helm.zenotta-cluster
-  name       = "nvidia-drivers-release"
-  chart      = "./helm/nvidia-chart"
-  # depends_on = [google_container_cluster.zenotta-mining-cluster]
-}
-
-resource "helm_release" "pod-monitoring-release" {
-  provider   = helm.zenotta-cluster
-  name       = "pod-monitoring-release"
-  chart      = "./helm/pod-monitoring-chart"
-  # depends_on = [google_container_cluster.zenotta-mining-cluster]
+  name       = "zenotta-node-release"
+  chart      = "./helm/node-chart"
+  depends_on = [google_container_cluster.zenotta-mining-cluster]
 }
 
 resource "helm_release" "zenotta-miner-release" {
