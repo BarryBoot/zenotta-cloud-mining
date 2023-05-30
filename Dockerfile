@@ -6,22 +6,15 @@ RUN apt-get update && apt-get -y install git build-essential m4 llvm libclang-de
 WORKDIR /zenotta
 
 # Clone dependancies
-RUN git clone https://github.com/Zenotta/keccak-prime.git /keccak-prime && git clone -b develop https://github.com/Zenotta/naom.git /naom && git clone -b develop https://github.com/Zenotta/ZNP.git ./
+RUN git clone https://github.com/Zenotta/keccak-prime.git /keccak-prime && git clone -b main https://github.com/Zenotta/naom.git /naom && git clone -b main https://github.com/Zenotta/ZNP.git ./
 
 # Build for release
 RUN cargo build --release
 
-# Copy config as we're removing src
-# RUN cp ./src/bin/initial_block.json ./src/bin/tls_certificates.json ./src/bin/api_config.json /etc/
-# COPY zenotta-miner-config.toml /etc/zenotta-miner-config.toml
-
 # Remove src
 RUN rm -Rvf src
-    
-# Use a multi-stage build and a distroless image for less attack vectors and a small image
-#FROM gcr.io/distroless/cc-debian11
 
-#COPY --from=build /zenotta/target/release/node /usr/local/bin/
+# config for the miner node
 COPY ./conf/* /etc/.
 
 ENV RUST_LOG=info,debug
