@@ -24,7 +24,7 @@ spec:
       serviceAccountName: "{{ .Values.service_account }}"
       containers:
         - name: {{ include "miner.fullname" . }}
-          image: "{{ (.Values.miner).image.repository }}:{{ (.Values.miner).image.tag }}"
+          image: "{{ .Values.miner.image.repository }}:{{ .Values.miner.image.tag }}"
           command: 
             - "/zenotta/target/release/node"
             - "miner"
