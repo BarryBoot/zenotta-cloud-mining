@@ -35,36 +35,36 @@ provider "helm" {
 #   value = [for node in data.kubernetes_nodes.zenotta-miner-nodes.nodes : node.spec.0.provider_id]
 # }
 
-resource "helm_release" "nvidia-drivers-release" {
-  provider   = helm.zenotta-cluster
-  name       = "nvidia-drivers-release"
-  chart      = "./helm/nvidia-chart"
-  # depends_on = [google_container_cluster.zenotta-mining-cluster]
-}
+# resource "helm_release" "nvidia-drivers-release" {
+#   provider   = helm.zenotta-cluster
+#   name       = "nvidia-drivers-release"
+#   chart      = "./helm/nvidia-chart"
+#   # depends_on = [google_container_cluster.zenotta-mining-cluster]
+# }
 
-resource "helm_release" "pod-monitoring-release" {
-  provider   = helm.zenotta-cluster
-  name       = "pod-monitoring-release"
-  chart      = "./helm/pod-monitoring-chart"
-  # depends_on = [google_container_cluster.zenotta-mining-cluster]
-}
+# resource "helm_release" "pod-monitoring-release" {
+#   provider   = helm.zenotta-cluster
+#   name       = "pod-monitoring-release"
+#   chart      = "./helm/pod-monitoring-chart"
+#   # depends_on = [google_container_cluster.zenotta-mining-cluster]
+# }
 
-resource "helm_release" "zenotta-miner-release" {
-  count      = 8
-  provider   = helm.zenotta-cluster
-  name       = "zenotta-miner-release-${count.index}"
-  chart      = "./helm/miner-chart"
-  set {
-    name  = "miner.fullnameOverride"
-    value = "zenotta-miner-${count.index}"
-  }
-  set {
-    name = "miner.port"
-    value = "1234${count.index}"
-  }
-  set {
-    name = "miner.user_port"
-    value = "1236${count.index}"
-  }
-  # depends_on = [google_container_cluster.zenotta-mining-cluster]
-}
+# resource "helm_release" "zenotta-miner-release" {
+#   count      = 8
+#   provider   = helm.zenotta-cluster
+#   name       = "zenotta-miner-release-${count.index}"
+#   chart      = "./helm/miner-chart"
+#   set {
+#     name  = "miner.fullnameOverride"
+#     value = "zenotta-miner-${count.index}"
+#   }
+#   set {
+#     name = "miner.port"
+#     value = "1234${count.index}"
+#   }
+#   set {
+#     name = "miner.user_port"
+#     value = "1236${count.index}"
+#   }
+#   # depends_on = [google_container_cluster.zenotta-mining-cluster]
+# }
