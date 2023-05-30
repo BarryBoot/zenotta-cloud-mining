@@ -1,7 +1,7 @@
 .terraform.lock.hcl
 .terraform/
+terraform.tfstate
 GOOGLE_CREDENTIALS
 GOOGLE_CREDENTIALS_OLD
-terraform/helm/examples/
 .DS_Store
 docker-compose.yml
