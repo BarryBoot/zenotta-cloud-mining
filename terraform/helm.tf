@@ -19,7 +19,7 @@ provider "helm" {
       args        = ["container", "get-credentials", google_container_cluster.zenotta-mining-cluster.name, "--region", var.region, "--project", var.projectId]
     }
   }
-}
+} 
 
 # output "node_pools" {
 #   value = data.google_container_cluster.credentials.node_pool
@@ -59,5 +59,5 @@ resource "helm_release" "zenotta-miner-release" {
     name = "miner.user_port"
     value = "1236${count.index}"
   }
-  depends_on = [google_container_cluster.zenotta-mining-cluster]
+  # depends_on = [google_container_cluster.zenotta-mining-cluster]
 }

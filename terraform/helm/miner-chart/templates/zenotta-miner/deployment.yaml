@@ -24,7 +24,7 @@ spec:
       serviceAccountName: "{{ .Values.service_account }}"
       containers:
         - name: {{ include "miner.fullname" . }}
-          image: "{{ .Values.miner.image.repository }}:{{ .Values.miner.image.tag }}"
+          image: "{{ (.Values.miner).image.repository }}:{{ .Values.miner.image.tag }}"
           command: 
             - "/zenotta/target/release/node"
             - "miner"
@@ -39,7 +39,6 @@ spec:
             limits:
               memory: {{ (.Values.miner).limits.memory }}
               cpu: {{ (.Values.miner).limits.cpu }}
-              resources:
               nvidia.com/gpu: 1
             requests:
               memory: {{ (.Values.miner).requests.memory }}
