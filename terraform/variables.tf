@@ -4,17 +4,17 @@ variable "GOOGLE_CREDENTIALS" {
 
 variable "project" {
   type    = string
-  default = "zenotta-mining"
+  default = "io-anvil"
 }
 
 variable "projectId" {
   type    = string
-  default = "zenotta-mining-387514"
+  default = "io-anvil"
 }
 
 variable "billingAccount" {
   type    = string
-  default = "014B21-4E10C8-3EAEB6"
+  default = "006A3A-0E7CC9-29C872"
 }
 
 variable "region" {
@@ -38,10 +38,10 @@ variable "node_locations" {
     # add "us-central1-b" if we want another zone - it also support L4
 }
 
-variable "nodes" {
-  type = map
-  default = {
-    miner0 = 8,
-    miner1 = 8
-  }
-}
+# variable "nodes" {
+#   type = map
+#   default = {
+#     miner0 = 8,
+#     miner1 = 8
+#   }
+# }

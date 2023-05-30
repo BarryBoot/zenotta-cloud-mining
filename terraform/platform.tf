@@ -1,9 +1,9 @@
-resource "google_project" "zenotta-mining" {
-  name                = var.project
-  project_id          = var.projectId
-  auto_create_network = false
-  billing_account     = var.billingAccount
-}
+# resource "google_project" "io-anvil" {
+#   name                = var.project
+#   project_id          = var.projectId
+#   auto_create_network = false
+#   billing_account     = var.billingAccount
+# }
 
 # data "google_iam_policy" "zenotta-mining-iam-policy" {
 #   binding {
