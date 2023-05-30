@@ -49,22 +49,22 @@ resource "helm_release" "pod-monitoring-release" {
   # depends_on = [google_container_cluster.zenotta-mining-cluster]
 }
 
-# resource "helm_release" "zenotta-miner-release" {
-#   count      = 8
-#   provider   = helm.zenotta-cluster
-#   name       = "zenotta-miner-release-${count.index}"
-#   chart      = "./helm/miner-chart"
-#   set {
-#     name  = "miner.fullnameOverride"
-#     value = "zenotta-miner-${count.index}"
-#   }
-#   set {
-#     name = "miner.port"
-#     value = "1234${count.index}"
-#   }
-#   set {
-#     name = "miner.user_port"
-#     value = "1236${count.index}"
-#   }
-#   # depends_on = [google_container_cluster.zenotta-mining-cluster]
-# }
+resource "helm_release" "zenotta-miner-release" {
+  count      = 8
+  provider   = helm.zenotta-cluster
+  name       = "zenotta-miner-release-${count.index}"
+  chart      = "./helm/miner-chart"
+  set {
+    name  = "miner.fullnameOverride"
+    value = "zenotta-miner-${count.index}"
+  }
+  set {
+    name = "miner.port"
+    value = "1234${count.index}"
+  }
+  set {
+    name = "miner.user_port"
+    value = "1236${count.index}"
+  }
+  # depends_on = [google_container_cluster.zenotta-mining-cluster]
+}
