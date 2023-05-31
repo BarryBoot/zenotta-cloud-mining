@@ -37,3 +37,8 @@ variable "node_locations" {
     default = ["us-central1-a"]
     # add "us-central1-b" if we want another zone - it also support L4
 } 
+
+variable "nodeCount" {
+  type = number
+  default = 3 
+}

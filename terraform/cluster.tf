@@ -43,7 +43,7 @@ resource "google_container_node_pool" "zenotta-mining-node-pool-Lfour" {
   name       = "zenotta-mining-node-pool-lfour"
   project    = var.projectId
   cluster    = google_container_cluster.zenotta-mining-cluster.id
-  node_count = 2
+  node_count = var.nodeCount
 
   network_config {
     enable_private_nodes = true

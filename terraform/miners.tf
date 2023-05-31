@@ -90,6 +90,49 @@ variable "zenottaMiners" {
                 api_key = "API_KEY"
                 period = "1-year"
             }
+        ],
+        # Node 2
+        [
+            {
+                owner = "mnr-van-vuuren"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mnr-van-vuuren"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mnr-van-vuuren"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mnr-van-vuuren"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mnr-van-vuuren"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mnr-van-vuuren"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mnr-van-vuuren"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mnr-van-vuuren"
+                api_key = "API_KEY"
+                period = "1-year"
+            }
         ]
     ]
 }
