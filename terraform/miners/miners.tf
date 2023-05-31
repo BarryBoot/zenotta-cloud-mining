@@ -15,7 +15,7 @@ terraform {
 resource "helm_release" "zenotta-miner-release" {
   count      = 8
   name       = "zenotta-miner-release-${count.index}"
-  chart      = "./helm/miner-chart"
+  chart      = "../helm/miner-chart"
   
   set {
     name  = "miner.fullnameOverride"

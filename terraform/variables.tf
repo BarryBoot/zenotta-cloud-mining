@@ -32,6 +32,11 @@ variable "location" {
   default = "us-central1"
 }
 
+variable "cluster_name" {
+  type = string
+  default = "zenotta-mining-cluster"
+}
+
 variable "node_locations" {
     type = list
     default = ["us-central1-a"]

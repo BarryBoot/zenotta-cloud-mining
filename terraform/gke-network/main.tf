@@ -1,11 +1,9 @@
 resource "google_compute_network" "zenotta-mining-network" {
-  project                 = var.projectId
   name                    = "zenotta-mining-network"
   auto_create_subnetworks = false
 }
 
 resource "google_compute_subnetwork" "zenotta-mining-subnetwork" {
-  project       = var.projectId
   name          = "zenotta-mining-subnetwork"
   ip_cidr_range = "10.2.0.0/16"
   region        = var.region
