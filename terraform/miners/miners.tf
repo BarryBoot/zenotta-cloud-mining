@@ -14,7 +14,7 @@ resource "helm_release" "zenotta-miner-release" {
   
   set {
     name  = "miner.fullnameOverride"
-    value = "zenotta-miner-${count.index}"
+    value = "zenotta-miner-${var.nodeIndex}-${count.index}"
   }
   set {
     name = "miner.port" 
