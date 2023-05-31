@@ -34,32 +34,6 @@ variable "location" {
 
 variable "node_locations" {
     type = list
-    default = ["us-central1-a", "us-central1-b"]
+    default = ["us-central1-a"]
     # add "us-central1-b" if we want another zone - it also support L4
 } 
-
-# variable "nodes" {
-#   type = map
-#   default = {
-#     miner0 = {
-#       miners = [
-#         miner = {
-#           owner = "Barry Botha",
-#           api_key = "API_KEY"
-#         }
-#       ]
-#     },
-#     miner1 = 8
-#   }
-# }
-
-# variable "miners" {
-#   type = list
-#   default = [
-#     {
-#       "api_key" = "API_KEY"
-#       "owner" = "Barry Botha"
-#       ""
-#     }
-#   ]
-# }
