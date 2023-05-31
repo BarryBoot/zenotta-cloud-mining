@@ -10,7 +10,6 @@ data "google_container_cluster" "credentials" {
 }
 
 provider "helm" {
-  alias = "zenotta-cluster"
   kubernetes {
     host                   = "https://${data.google_container_cluster.credentials.endpoint}"
     token                  = data.google_client_config.client.access_token
@@ -41,12 +40,9 @@ output "miner-nodes" {
 }
 
 resource "helm_release" "zenotta-node-release" {
-  
-  provider   = helm.zenotta-cluster
   name       = "zenotta-node-release"
   chart      = "./helm/node-chart"
   depends_on = [google_container_cluster.zenotta-mining-cluster]
-
 }
 
 module "zenotta-miners" {
