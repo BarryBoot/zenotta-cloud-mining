@@ -32,6 +32,9 @@ resource "google_compute_router" "zenotta-mining-router" {
 resource "google_compute_address" "zenotta-mining-nat-addresses" {
   name = "zenotta-minnig-nat-manual-ip"
   region = var.region
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "google_compute_router_nat" "router-nat" {

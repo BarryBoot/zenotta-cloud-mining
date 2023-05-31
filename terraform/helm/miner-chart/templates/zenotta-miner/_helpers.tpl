@@ -45,6 +45,8 @@ helm.sh/chart: {{ include "miner.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+app.kubernetes.io/owned-by: {{ .Values.miner.owner }}
+app.kubernetes.io/priod: {{ .Values.miner.period }}
 {{- end }}
 
 {{/*
