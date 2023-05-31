@@ -12,7 +12,7 @@ data "google_container_cluster" "credentials" {
 provider "helm" {
   alias = "zenotta-cluster"
   kubernetes {
-    host                   = data.google_container_cluster.credentials.endpoint
+    host                   = "https://${data.google_container_cluster.default.endpoint}"
     token                  = data.google_client_config.client.access_token
     cluster_ca_certificate = base64decode(google_container_cluster.zenotta-mining-cluster.master_auth.0.cluster_ca_certificate)
   }
