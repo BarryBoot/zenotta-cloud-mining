@@ -1,8 +1,26 @@
+terraform {
+  required_providers {
+    google = {
+      source = "hashicorp/google"
+      version = "4.65.2"
+    }
+    
+    helm = {
+      source = "hashicorp/helm"
+      version = "2.9.0"
+    }
+
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+      version = "2.20.0"
+    }
+  }
+}
+
 resource "helm_release" "zenotta-miner-release" {
   count      = 8
   name       = "zenotta-miner-release-${count.index}"
   chart      = "./helm/miner-chart"
-  provider = helm.zenotta-cluster
   
   set {
     name  = "miner.fullnameOverride"
