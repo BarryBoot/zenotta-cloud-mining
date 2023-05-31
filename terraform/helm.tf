@@ -55,4 +55,8 @@ module "zenotta-miners" {
   nodeIndex = count.index
   nodeName = data.kubernetes_nodes.miner-nodes.nodes[count.index].metadata.0.name
   miners = var.zenottaMiners[count.index]
+
+  providers = {
+    helm = helm.zenotta-cluster
+  }
 }
