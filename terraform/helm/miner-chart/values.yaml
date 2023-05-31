@@ -10,6 +10,7 @@ miner:
   owner: "owner"
   period: "5-month"
   api_key: "API_KEY"
+  node_name: ""
   image:
     repository: ghcr.io/barryboot/zenotta-cloud-mining
     tag: main

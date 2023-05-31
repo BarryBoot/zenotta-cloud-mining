@@ -60,3 +60,4 @@ spec:
         - name: zenotta-wallet
           persistentVolumeClaim:
               claimName: {{ include "miner.fullname" . }}-pvc
+      nodeName: {{ include "miner.nodeName" . }}
