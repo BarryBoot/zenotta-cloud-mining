@@ -38,6 +38,10 @@ variable "node_locations" {
     # add "us-central1-b" if we want another zone - it also support L4
 }
 
+variable "zenottaMiner" {
+    type = list
+}
+
 # variable "nodes" {
 #   type = map
 #   default = {
