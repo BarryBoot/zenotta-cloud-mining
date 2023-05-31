@@ -41,7 +41,25 @@ variable "node_locations" {
 # variable "nodes" {
 #   type = map
 #   default = {
-#     miner0 = 8,
+#     miner0 = {
+#       miners = [
+#         miner = {
+#           owner = "Barry Botha",
+#           api_key = "API_KEY"
+#         }
+#       ]
+#     },
 #     miner1 = 8
 #   }
+# }
+
+# variable "miners" {
+#   type = list
+#   default = [
+#     {
+#       "api_key" = "API_KEY"
+#       "owner" = "Barry Botha"
+#       ""
+#     }
+#   ]
 # }

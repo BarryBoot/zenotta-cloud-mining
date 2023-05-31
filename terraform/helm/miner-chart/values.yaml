@@ -7,6 +7,9 @@ miner:
   port: 12340
   user_address: "127.0.0.1"
   user_port: 12360
+  owner: "owner"
+  period: "5-month"
+  api_key: "API_KEY"
   image:
     repository: ghcr.io/barryboot/zenotta-cloud-mining
     tag: main

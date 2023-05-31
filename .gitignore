@@ -5,3 +5,4 @@ GOOGLE_CREDENTIALS
 GOOGLE_CREDENTIALS_OLD
 .DS_Store
 docker-compose.yml
+miners.tf

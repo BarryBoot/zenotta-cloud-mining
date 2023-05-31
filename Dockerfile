@@ -6,7 +6,7 @@ RUN apt-get update && apt-get -y install git build-essential m4 llvm libclang-de
 WORKDIR /zenotta
 
 # Clone dependancies
-RUN git clone https://github.com/Zenotta/keccak-prime.git /keccak-prime && git clone -b main https://github.com/Zenotta/naom.git /naom && git clone -b main https://github.com/Zenotta/ZNP.git ./
+RUN git clone -b main https://github.com/Zenotta/ZNP.git ./
 
 # Build for release
 RUN cargo build --release
