@@ -44,18 +44,16 @@ output "miner-node-names" {
   value = [for node in data.kubernetes_nodes.miner-nodes.nodes : node.metadata.0.name]
 }
 
+output "miner-nodes" {
+ value = data.kubernetes_nodes.miner-nodes.nodes
+}
+
 resource "helm_release" "zenotta-node-release" {
   
   provider   = helm.zenotta-cluster
   name       = "zenotta-node-release"
   chart      = "./helm/node-chart"
   depends_on = [google_container_cluster.zenotta-mining-cluster]
-
-  # for_each = toset([for node in data.kubernetes_nodes.miner-nodes.nodes : node.metadata.0.name])
-  # set {
-  #   name  = "node.name"
-  #   value = each.key
-  # }
 
 }
 
@@ -64,20 +62,5 @@ module "zenotta-miners" {
   count = length(data.kubernetes_nodes.miner-nodes.nodes)
   nodeIndex = count.index
   nodeName = data.kubernetes_nodes.miner-nodes.nodes[count.index].metadata.0.name
-  miners = var.miners[count.index]
+  miners = var.zenottaMiners[count.index]
 }
-
-
-# output "node_pools" {
-#   value = data.google_container_cluster.credentials.node_pool
-# }
-
-# output "instance_group_urls" {
-#   value = google_container_cluster.zenotta-mining-cluster.node_pool[0].instance_group_urls
-# }
-
-# data "kubernetes_nodes" "zenotta-miner-nodes" {}
-
-# output "zenotta-miner-node-ids" {
-#   value = [for node in data.kubernetes_nodes.zenotta-miner-nodes.nodes : node.spec.0.provider_id]
-# }
