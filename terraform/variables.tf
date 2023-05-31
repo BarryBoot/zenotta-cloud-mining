@@ -40,5 +40,5 @@ variable "node_locations" {
 
 variable "nodeCount" {
   type = number
-  default = 3 
+  default = 3
 }
