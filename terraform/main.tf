@@ -70,7 +70,7 @@ resource "helm_release" "zenotta-node-release" {
 }
 
 module "zenotta-miners" {
-  depends_on = [module.gke-cluster]
+  depends_on = [module.gke-cluster, helm_release.zenotta-node-release]
   source     = "./miners"
   count      = length(var.zenottaMiners)
   nodeIndex  = count.index
