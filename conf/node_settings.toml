@@ -8,8 +8,9 @@ miner_api_port = 3000
 mining_api_key = "YOUR_API_KEY"
 
 # Loki testnet
+#address = "34.209.131.212:12300"
 [[compute_nodes]]
-address = "34.209.131.212:12300"
+address = "34.209.131.212:80"
 
 # This miner node instance
 [[miner_nodes]]
