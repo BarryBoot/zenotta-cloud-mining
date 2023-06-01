@@ -34,7 +34,7 @@ variable "location" {
 
 variable "cluster_node_count"{
   type = number
-  default = 2
+  default = 5
 }
 
 variable "node_locations" {
@@ -48,10 +48,10 @@ variable "replica_zones" {
     default = ["us-central1-a", "us-central1-b"]
 } 
 
-variable "nodeCount" {
-  type = number
-  default = 3
-}
+# variable "nodeCount" {
+#   type = number
+#   default = 3
+# }
 
 locals {
   cluster_name = "zenotta-mining-cluster"
