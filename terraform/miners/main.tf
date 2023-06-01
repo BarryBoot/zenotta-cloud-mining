@@ -37,4 +37,8 @@ resource "helm_release" "zenotta-miner-release" {
     name = "miner.period"
     value = "${var.miners[count.index].period}"
   }
+  set {
+    name = "miner.disk_name"
+    value = "zenotta-miner-disk-${var.nodeIndex}-${count.index}"
+  }
 }

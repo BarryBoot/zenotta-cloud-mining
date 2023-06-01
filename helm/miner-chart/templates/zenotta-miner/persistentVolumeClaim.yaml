@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name:  {{ include "miner.fullname" . }}-pvc
 spec:
+  volumeName:  {{ include "miner.fullname" . }}-pv
   accessModes:
     - ReadWriteOnce
   volumeMode: Filesystem

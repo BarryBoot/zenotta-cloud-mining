@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ include "miner.fullname" . }}-pv
+spec:
+  storageClassName: zenotta-wallet
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: default
+    name: {{ include "miner.fullname" . }}-pvc
+  csi:
+    driver: pd.csi.storage.gke.io
+    volumeHandle: {{ include "miner.disk_name" . }}

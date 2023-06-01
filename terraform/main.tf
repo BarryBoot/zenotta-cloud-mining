@@ -8,7 +8,7 @@ data "google_client_config" "default" {
 # Defer reading the cluster data until the GKE cluster exists.
 data "google_container_cluster" "default" {
   name       = local.cluster_name
-  location = var.location
+  location   = var.location
   depends_on = [module.gke-cluster]
 }
 
@@ -47,6 +47,15 @@ module "gke-cluster" {
   node_locations     = var.node_locations
 }
 
+module "gke-disks" {
+  source        = "./gke-disks"
+  count         = length(var.zenottaMiners)
+  region        = var.region
+  replica_zones = var.replica_zones
+  nodeIndex     = count.index
+  miners        = var.zenottaMiners[count.index]
+}
+
 # data "kubernetes_nodes" "default" {
 #   metadata {
 #     labels = {
@@ -65,7 +74,7 @@ module "gke-cluster" {
 
 module "zenotta-nodes" {
   depends_on = [module.gke-cluster]
-  source = "./nodes"
+  source     = "./nodes"
 }
 
 module "zenotta-miners" {
