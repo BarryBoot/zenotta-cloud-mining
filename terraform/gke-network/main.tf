@@ -50,7 +50,7 @@ resource "google_compute_router_nat" "router-nat" {
   region = var.region
 
   nat_ip_allocate_option = "MANUAL_ONLY"
-  nat_ips = google_compute_address.zenotta-mining-nat-manual-ip.*.self_link
+  nat_ips = google_compute_address.zenotta-minnig-nat-manual-ip.*.self_link
 
   source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
   subnetwork {
