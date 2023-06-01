@@ -86,3 +86,7 @@ module "zenotta-miners" {
   region     = var.region
   projectId  = var.projectId
 }
+
+output "num_of_nodes" {
+  value = length(var.zenottaMiners)
+}

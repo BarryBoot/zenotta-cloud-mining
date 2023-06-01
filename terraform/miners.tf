@@ -177,7 +177,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-         # Node 5
+        # Node 5
         [
             {
                 owner = "mervyn-eagles"
@@ -220,7 +220,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-         # Node 6
+        # Node 6
         [
             {
                 owner = "mervyn-eagles"
@@ -263,7 +263,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-         # Node 4
+        # Node 7
         [
             {
                 owner = "mervyn-eagles"
@@ -306,7 +306,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-         # Node 4
+        # Node 8
         [
             {
                 owner = "mervyn-eagles"
@@ -349,7 +349,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-         # Node 4
+        # Node 9
         [
             {
                 owner = "mervyn-eagles"
