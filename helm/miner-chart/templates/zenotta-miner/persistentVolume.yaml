@@ -13,4 +13,4 @@ spec:
     name: {{ include "miner.fullname" . }}-pvc
   csi:
     driver: pd.csi.storage.gke.io
-    volumeHandle: {{ include "miner.disk_name" . }}
+    volumeHandle: {{ (.Values.miner).disk_name }}
