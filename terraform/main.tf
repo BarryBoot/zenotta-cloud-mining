@@ -7,7 +7,8 @@ data "google_client_config" "default" {
 
 # Defer reading the cluster data until the GKE cluster exists.
 data "google_container_cluster" "default" {
-  name       = var.cluster_name
+  name       = local.cluster_name
+  location = var.location
   depends_on = [module.gke-cluster]
 }
 
@@ -37,7 +38,7 @@ module "gke-network" {
 module "gke-cluster" {
   depends_on         = [module.gke-network]
   source             = "./gke-cluster"
-  cluster_name       = var.cluster_name
+  cluster_name       = local.cluster_name
   cluster_node_count = var.cluster_node_count
   network_id         = module.gke-network.network_id
   subnetwork_id      = module.gke-network.subnetwork_id

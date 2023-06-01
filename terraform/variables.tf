@@ -32,11 +32,6 @@ variable "location" {
   default = "us-central1"
 }
 
-variable "cluster_name" {
-  type = string
-  default = "zenotta-mining-cluster"
-}
-
 variable "cluster_node_count"{
   type = number
   default = 2
@@ -51,4 +46,8 @@ variable "node_locations" {
 variable "nodeCount" {
   type = number
   default = 3
+}
+
+locals {
+  cluster_name = "zenotta-mining-cluster"
 }
