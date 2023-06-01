@@ -35,7 +35,8 @@ spec:
             - "--api_use_tls=0"
             - "--with_user_address={{ (.Values.miner).user_address }}:{{ (.Values.miner).user_port }}"
             - "--address={{ (.Values.miner).address }}:{{ (.Values.miner).port }}"
-            - "--miner_api_key={{ (.Values.miner).api_key }}"
+            - "--mining_api_key={{ (.Values.miner).api_key }}"
+
           resources:
             limits:
               memory: {{ (.Values.miner).limits.memory }}
