@@ -1,31 +1,25 @@
----
-# Deployment for the API Service
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "miner.fullname" . }}
   labels:
     {{- include "miner.labels" . | nindent 4 }}
 spec:
-  replicas: {{ (.Values.miner).replicaCount }}
   selector:
     matchLabels:
       {{- include "miner.selectorLabels" . | nindent 6 }}
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 6
-      maxUnavailable: 2
+  serviceName: "nginx"
+  replicas: {{ (.Values.miner).replicaCount }}
   template:
     metadata:
       labels:
         {{- include "miner.selectorLabels" . | nindent 8 }}
     spec:
-      serviceAccountName: "{{ .Values.service_account }}"
+      terminationGracePeriodSeconds: 10
       containers:
-        - name: {{ include "miner.fullname" . }}
-          image: "{{ (.Values.miner).image.repository }}:{{ .Values.miner.image.tag }}"
-          command: 
+      - name: {{ include "miner.fullname" . }}
+        image: "{{ (.Values.miner).image.repository }}:{{ .Values.miner.image.tag }}"
+        command: 
             - "/zenotta/target/release/node"
             - "miner"
             - "--config=/etc/node_settings.toml"
@@ -36,8 +30,10 @@ spec:
             - "--with_user_address={{ (.Values.miner).user_address }}:{{ (.Values.miner).user_port }}"
             - "--address={{ (.Values.miner).address }}:{{ (.Values.miner).port }}"
             - "--mining_api_key={{ (.Values.miner).api_key }}"
-
-          resources:
+        ports:
+          - containerPort: 3000
+            name: http-api
+        resources:
             limits:
               memory: {{ (.Values.miner).limits.memory }}
               cpu: {{ (.Values.miner).limits.cpu }}
@@ -46,18 +42,20 @@ spec:
               memory: {{ (.Values.miner).requests.memory }}
               cpu: {{ (.Values.miner).requests.cpu }}
               nvidia.com/gpu: 1
-          ports:
-            - containerPort: 80
-          imagePullPolicy: Always
-          envFrom:
-            - configMapRef:
-                name: {{ include "miner.fullname" . }}-configmap
-            - secretRef:
-                name: {{ include "miner.fullname" . }}-secret
-          volumeMounts:
-            - name: zenotta-wallet
-              mountPath: /zenotta/src/wallet
-      volumes:
-        - name: zenotta-wallet
-          persistentVolumeClaim:
-              claimName: {{ include "miner.fullname" . }}-pvc
+        imagePullPolicy: Always
+        envFrom:
+          - configMapRef:
+              name: {{ include "miner.fullname" . }}-configmap
+          - secretRef:
+              name: {{ include "miner.fullname" . }}-secret
+        volumeMounts:
+        - name: {{ include "miner.fullname" . }}-pvc
+          mountPath: /zenotta/src/wallet
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ include "miner.fullname" . }}-pvc
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 3Gi

@@ -47,14 +47,14 @@ module "gke-cluster" {
   node_locations     = var.node_locations
 }
 
-module "gke-disks" {
-  source        = "./gke-disks"
-  count         = length(var.zenottaMiners)
-  region        = var.region
-  replica_zones = var.replica_zones
-  nodeIndex     = count.index
-  miners        = var.zenottaMiners[count.index]
-}
+# module "gke-disks" {
+#   source        = "./gke-disks"
+#   count         = length(var.zenottaMiners)
+#   region        = var.region
+#   replica_zones = var.replica_zones
+#   nodeIndex     = count.index
+#   miners        = var.zenottaMiners[count.index]
+# }
 
 # data "kubernetes_nodes" "default" {
 #   metadata {
