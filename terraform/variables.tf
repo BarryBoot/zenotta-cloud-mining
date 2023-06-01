@@ -39,7 +39,7 @@ variable "cluster_node_count"{
 
 variable "node_locations" {
     type = list
-    default = ["us-central1-a", "us-central1-b"]
+    default = ["us-central1-a"]
     # add "us-central1-b" if we want another zone - it also support L4
 } 
 
