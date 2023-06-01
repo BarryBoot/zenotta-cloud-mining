@@ -10,7 +10,7 @@ terraform {
 resource "google_compute_region_disk" "default" {
   count      = 8
   name  = "zenotta-miner-disk-${var.nodeIndex}-${count.index}"
-  type  = "pd-hdd"
+  type  = "pd-standard"
   region  = var.region
   replica_zones = var.replica_zones
   
