@@ -1,11 +1,18 @@
+terraform {
+  required_providers {
+    google = {
+      source = "hashicorp/google"
+      version = "4.65.2"
+    }
+  }
+}
+
 resource "google_compute_network" "zenotta-mining-network" {
-  project                 = var.projectId
   name                    = "zenotta-mining-network"
   auto_create_subnetworks = false
 }
 
 resource "google_compute_subnetwork" "zenotta-mining-subnetwork" {
-  project       = var.projectId
   name          = "zenotta-mining-subnetwork"
   ip_cidr_range = "10.2.0.0/16"
   region        = var.region
@@ -13,12 +20,12 @@ resource "google_compute_subnetwork" "zenotta-mining-subnetwork" {
 
   secondary_ip_range {
     range_name    = "service-range"
-    ip_cidr_range = "192.168.1.0/24"
+    ip_cidr_range = "10.3.0.0/16"
   }
 
   secondary_ip_range {
     range_name    = "pod-range"
-    ip_cidr_range = "192.168.64.0/22"
+    ip_cidr_range = "10.4.0.0/16"
   }
 
 }
@@ -29,7 +36,7 @@ resource "google_compute_router" "zenotta-mining-router" {
   network = google_compute_network.zenotta-mining-network.id
 }
 
-resource "google_compute_address" "zenotta-mining-nat-addresses" {
+resource "google_compute_address" "zenotta-minnig-nat-manual-ip" {
   name = "zenotta-minnig-nat-manual-ip"
   region = var.region
   lifecycle {
@@ -43,7 +50,7 @@ resource "google_compute_router_nat" "router-nat" {
   region = var.region
 
   nat_ip_allocate_option = "MANUAL_ONLY"
-  nat_ips = google_compute_address.zenotta-mining-nat-addresses.*.self_link
+  nat_ips = google_compute_address.zenotta-mining-nat-manual-ip.*.self_link
 
   source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
   subnetwork {

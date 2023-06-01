@@ -1,12 +1,30 @@
-resource "google_container_cluster" "zenotta-mining-cluster" {
+terraform {
+  required_providers {
+    google = {
+      source = "hashicorp/google"
+      version = "4.65.2"
+    }
 
-  name           = "zenotta-mining-cluster"
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+      version = "2.20.0"
+    }
+  }
+}
+
+resource "google_service_account" "zenotta-node-service-account" {
+ account_id   = "zenotta-node-service-account"
+ display_name = "zenotta-node-service-account"
+}
+
+resource "google_container_cluster" "default" {
+
+  name           = var.cluster_name
   location       = var.location
   node_locations = var.node_locations
-  project        = var.projectId
 
-  network    = google_compute_network.zenotta-mining-network.id
-  subnetwork = google_compute_subnetwork.zenotta-mining-subnetwork.id
+  network    = var.network_id
+  subnetwork = var.subnetwork_id
   enable_shielded_nodes = true
 
   remove_default_node_pool = true
@@ -39,11 +57,10 @@ resource "google_container_cluster" "zenotta-mining-cluster" {
 
 }
 
-resource "google_container_node_pool" "zenotta-mining-node-pool-Lfour" {
+resource "google_container_node_pool" "default" {
   name       = "zenotta-mining-node-pool-lfour"
-  project    = var.projectId
-  cluster    = google_container_cluster.zenotta-mining-cluster.id
-  node_count = var.nodeCount
+  cluster    = google_container_cluster.default.id
+  node_count = var.cluster_node_count
 
   network_config {
     enable_private_nodes = true
@@ -83,7 +100,3 @@ resource "google_container_node_pool" "zenotta-mining-node-pool-Lfour" {
 
   }
 }
-
-# output "zenotta-node-names" {
-#   value = [for zenotta-node-name in google_container_node_pool.zenotta-mining-node-pool-Lfour: zenotta-node-name.public_ip]
-# }
