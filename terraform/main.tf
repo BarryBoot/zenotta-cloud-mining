@@ -83,4 +83,6 @@ module "zenotta-miners" {
   count      = length(var.zenottaMiners)
   nodeIndex  = count.index
   miners     = var.zenottaMiners[count.index]
+  region     = var.region
+  projectId  = var.projectId
 }

@@ -39,6 +39,6 @@ resource "helm_release" "zenotta-miner-release" {
   }
   set {
     name = "miner.disk_name"
-    value = "zenotta-miner-disk-${var.nodeIndex}-${count.index}"
+    value = "projects/${var.projectId}/regions/${var.region}/disks/zenotta-miner-disk-${var.nodeIndex}-${count.index}"
   }
 }
