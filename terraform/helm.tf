@@ -50,5 +50,5 @@ module "zenotta-miners" {
   count = length(data.kubernetes_nodes.miner-nodes.nodes)
   nodeIndex = count.index
   nodeName = data.kubernetes_nodes.miner-nodes.nodes[count.index].metadata.0.name
-  miners = var.zenottaMiners[count.index]
+  miners = var.zenottaMiners[count.index] 
 }
