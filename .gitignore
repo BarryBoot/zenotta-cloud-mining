@@ -2,7 +2,6 @@
 .terraform/
 terraform.tfstate
 GOOGLE_CREDENTIALS
-GOOGLE_CREDENTIALS_OLD
 .DS_Store
 docker-compose.yml
 age-key.txt

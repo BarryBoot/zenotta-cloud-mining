@@ -63,16 +63,15 @@ module "gke-cluster" {
 #  value = data.kubernetes_nodes.default.nodes
 # }
 
-resource "helm_release" "zenotta-node-release" {
-  depends_on = [module.gke-cluster]
-  name       = "zenotta-node-release"
-  chart      = "../helm/node-chart"
-}
+# module "zenotta-nodes" {
+#   depends_on = [module.gke-cluster]
+#   source = "./nodes"
+# }
 
-module "zenotta-miners" {
-  depends_on = [module.gke-cluster, helm_release.zenotta-node-release]
-  source     = "./miners"
-  count      = length(var.zenottaMiners)
-  nodeIndex  = count.index
-  miners     = var.zenottaMiners[count.index]
-}
+# module "zenotta-miners" {
+#   depends_on = [module.gke-cluster, module.zenotta-nodes]
+#   source     = "./miners"
+#   count      = length(var.zenottaMiners)
+#   nodeIndex  = count.index
+#   miners     = var.zenottaMiners[count.index]
+# }
