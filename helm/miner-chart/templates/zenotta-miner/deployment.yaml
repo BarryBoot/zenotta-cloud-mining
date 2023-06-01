@@ -35,7 +35,7 @@ spec:
             - "--api_use_tls=0"
             - "--with_user_address={{ (.Values.miner).user_address }}:{{ (.Values.miner).user_port }}"
             - "--address={{ (.Values.miner).address }}:{{ (.Values.miner).port }}"
-            - "--api_key={{ (.Values.miner).api_key }}"
+            - "--miner_api_key={{ (.Values.miner).api_key }}"
           resources:
             limits:
               memory: {{ (.Values.miner).limits.memory }}
@@ -60,4 +60,3 @@ spec:
         - name: zenotta-wallet
           persistentVolumeClaim:
               claimName: {{ include "miner.fullname" . }}-pvc
-      nodeName: {{ include "miner.nodeName" . }}

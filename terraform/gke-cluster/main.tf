@@ -1,6 +1,15 @@
-resource "google_service_account" "zenotta-mining-service-account" {
-  account_id   = "zenotta-mining-service-account"
-  display_name = "zenotta-mining-service-account"
+terraform {
+  required_providers {
+    google = {
+      source = "hashicorp/google"
+      version = "4.65.2"
+    }
+
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+      version = "2.20.0"
+    }
+  }
 }
 
 resource "google_service_account" "zenotta-node-service-account" {
@@ -51,7 +60,7 @@ resource "google_container_cluster" "default" {
 resource "google_container_node_pool" "default" {
   name       = "zenotta-mining-node-pool-lfour"
   cluster    = google_container_cluster.default.id
-  node_count = 2
+  node_count = var.cluster_node_count
 
   network_config {
     enable_private_nodes = true
@@ -91,7 +100,3 @@ resource "google_container_node_pool" "default" {
 
   }
 }
-
-# output "zenotta-node-names" {
-#   value = [for zenotta-node-name in google_container_node_pool.zenotta-mining-node-pool-Lfour: zenotta-node-name.public_ip]
-# }

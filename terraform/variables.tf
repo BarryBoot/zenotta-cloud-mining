@@ -37,8 +37,13 @@ variable "cluster_name" {
   default = "zenotta-mining-cluster"
 }
 
+variable "cluster_node_count"{
+  type = number
+  default = 2
+}
+
 variable "node_locations" {
     type = list
-    default = ["us-central1-a"]
+    default = ["us-central1-a", "us-central1-b"]
     # add "us-central1-b" if we want another zone - it also support L4
 } 
