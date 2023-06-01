@@ -63,15 +63,15 @@ module "gke-cluster" {
 #  value = data.kubernetes_nodes.default.nodes
 # }
 
-# module "zenotta-nodes" {
-#   depends_on = [module.gke-cluster]
-#   source = "./nodes"
-# }
+module "zenotta-nodes" {
+  depends_on = [module.gke-cluster]
+  source = "./nodes"
+}
 
-# module "zenotta-miners" {
-#   depends_on = [module.gke-cluster, module.zenotta-nodes]
-#   source     = "./miners"
-#   count      = length(var.zenottaMiners)
-#   nodeIndex  = count.index
-#   miners     = var.zenottaMiners[count.index]
-# }
+module "zenotta-miners" {
+  depends_on = [module.gke-cluster, module.zenotta-nodes]
+  source     = "./miners"
+  count      = length(var.zenottaMiners)
+  nodeIndex  = count.index
+  miners     = var.zenottaMiners[count.index]
+}

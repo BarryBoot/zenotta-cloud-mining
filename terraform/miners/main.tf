@@ -19,7 +19,7 @@ resource "helm_release" "zenotta-miner-release" {
   }
   set {
     name = "miner.port" 
-    value = "1234${count.index}"
+    value = "123${var.nodeIndex}${count.index}"
   }
   set {
     name = "miner.user_port"
