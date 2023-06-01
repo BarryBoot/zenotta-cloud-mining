@@ -78,7 +78,7 @@ module "zenotta-nodes" {
 }
 
 module "zenotta-miners" {
-  depends_on = [module.gke-cluster, module.zenotta-nodes]
+  depends_on = [module.gke-cluster, module.zenotta-nodes, module.gke-disks]
   source     = "./miners"
   count      = length(var.zenottaMiners)
   nodeIndex  = count.index
