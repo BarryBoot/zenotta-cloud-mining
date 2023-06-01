@@ -8,42 +8,42 @@ variable "zenottaMiners" {
         # Node 0
         [
             {
-                owner = "skibidi-yes"
+                owner = "barry-botha"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "skibidi-yes"
+                owner = "barry-botha"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "skibidi-yes"
+                owner = "barry-botha"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "kokkewiet"
+                owner = "karen-breytenbach"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "gert-janse"
+                owner = "ricky-kotzen"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "gert-janse"
+                owner = "ricky-kotzen"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "gert-janse"
+                owner = "duncan-land"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "gert-janse"
+                owner = "carol-heij"
                 api_key = "API_KEY"
                 period = "1-year"
             }
@@ -51,42 +51,343 @@ variable "zenottaMiners" {
         # Node 1
         [
             {
-                owner = "gert-janse"
+                owner = "jud-mathias"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "gert-janse"
+                owner = "jud-mathias"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "gert-janse"
+                owner = "jud-mathias"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "gert-janse"
+                owner = "kyle-leigh"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "gert-janse"
+                owner = "simon-pratley"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "gert-janse"
+                owner = "jason-strauss"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "gert-janse"
+                owner = "perry-eagles"
                 api_key = "API_KEY"
                 period = "1-year"
             },
             {
-                owner = "gert-janse"
+                owner = "perry-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            }
+        ],
+        # Node 3
+        [
+            {
+                owner = "perry-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "perry-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "perry-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "perry-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "perry-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            }
+        ],
+        # Node 4
+        [
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            }
+        ],
+         # Node 5
+        [
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            }
+        ],
+         # Node 6
+        [
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            }
+        ],
+         # Node 4
+        [
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            }
+        ],
+         # Node 4
+        [
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            }
+        ],
+         # Node 4
+        [
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "mervyn-eagles"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "barry-botha"
                 api_key = "API_KEY"
                 period = "1-year"
             }
