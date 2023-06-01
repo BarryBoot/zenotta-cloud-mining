@@ -5,7 +5,7 @@ metadata:
 spec:
   storageClassName: zenotta-wallet
   capacity:
-    storage: 2Gi
+    storage: 3Gi
   accessModes:
     - ReadWriteOnce
   claimRef:
