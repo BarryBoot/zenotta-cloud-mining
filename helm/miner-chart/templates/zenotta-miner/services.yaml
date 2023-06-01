@@ -9,7 +9,7 @@ metadata:
 spec:
   selector:
     {{- include "miner.selectorLabels" . | nindent 4 }}
-  clusterIP: none
+  clusterIP: None
   ports:
     - protocol: TCP
       port: 80
