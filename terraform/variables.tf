@@ -34,7 +34,7 @@ variable "location" {
 
 variable "cluster_node_count"{
   type = number
-  default = 1
+  default = 2
 }
 
 variable "node_locations" {
