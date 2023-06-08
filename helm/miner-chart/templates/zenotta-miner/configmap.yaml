@@ -5,3 +5,5 @@ metadata:
   name: {{ include "miner.fullname" . }}-configmap
 data:
   RUST_LOG: {{ (.Values.miner).configMap.RUST_LOG | quote }}
+  OWNER: {{ .Values.miner.owner }}
+  PERIOD: {{ .Values.miner.period }}
