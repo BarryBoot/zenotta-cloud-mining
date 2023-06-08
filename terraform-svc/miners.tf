@@ -394,3 +394,22 @@ variable "zenottaMiners" {
         ]
     ]
 }
+
+# Node 10
+        # [
+        #     {
+        #         owner = "hannes-botha"
+        #         api_key = "API_KEY"
+        #         period = "1-year"
+        #     },
+        #     {
+        #         owner = "hannes-botha"
+        #         api_key = "API_KEY"
+        #         period = "1-year"
+        #     },
+        #     {
+        #         owner = "hannes-botha"
+        #         api_key = "API_KEY"
+        #         period = "1-year"
+        #     }
+        # ]
