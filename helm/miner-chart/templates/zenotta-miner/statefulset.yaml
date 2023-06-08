@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        {{- include "miner.selectorLabels" . | nindent 8 }}
+        {{- include "miner.labels" . | nindent 8 }}
     spec:
       terminationGracePeriodSeconds: 10
       containers:
