@@ -1,7 +1,3 @@
-variable "GOOGLE_CREDENTIALS" {
-  type = string
-}
-
 variable "project" {
   type    = string
   default = "io-anvil"
