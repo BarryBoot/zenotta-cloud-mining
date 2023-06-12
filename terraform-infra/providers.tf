@@ -8,26 +8,12 @@ terraform {
       version = "4.65.2"
     }
 
-    sops = {
-      source = "carlpett/sops"
-      version = "0.7.0"
-    }
-
-    helm = {
-      source = "hashicorp/helm"
-      version = "2.9.0"
-    }
-
-    kubernetes = {
-      source = "hashicorp/kubernetes"
-      version = "2.20.0"
-    }
   }
 
   cloud {
     organization = "io-digital"
     workspaces {
-      name = "zenotta-cloud-mining"
+      name = "zenotta-cloud-mining-infra"
     }
   }
 }
