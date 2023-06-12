@@ -125,10 +125,6 @@ resource "google_container_node_pool" "testing-nodepool" {
   cluster    = google_container_cluster.testing-cluster.id
   node_count = 1
 
-  network_config {
-    enable_private_nodes = true
-  }
-
   node_config {
 
     preemptible = false
