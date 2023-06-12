@@ -28,9 +28,10 @@ variable "location" {
   default = "us-central1"
 }
 
+# this doubles because 2 zones
 variable "cluster_node_count"{
   type = number
-  default = 5
+  default = 4
 }
 
 variable "node_locations" {
