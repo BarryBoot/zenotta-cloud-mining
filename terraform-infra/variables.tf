@@ -31,7 +31,7 @@ variable "location" {
 # this doubles because 2 zones
 variable "cluster_node_count"{
   type = number
-  default = 4
+  default = 3
 }
 
 variable "node_locations" {
