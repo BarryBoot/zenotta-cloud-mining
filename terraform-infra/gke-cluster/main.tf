@@ -85,63 +85,6 @@ resource "google_container_node_pool" "default" {
       count = 1
       gpu_sharing_config {
         gpu_sharing_strategy       = "TIME_SHARING"
-        max_shared_clients_per_gpu = 8
-      }
-    }
-
-    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    service_account = google_service_account.zenotta-node-service-account.email
-    oauth_scopes = [
-      "https://www.googleapis.com/auth/cloud-platform",
-      "https://www.googleapis.com/auth/logging.write",
-      "https://www.googleapis.com/auth/monitoring",
-      "https://www.googleapis.com/auth/devstorage.read_only"
-    ]
-
-  }
-}
-
-resource "google_container_cluster" "testing-cluster" {
-
-  name           = "testing-cluster"
-  location       = var.location
-  node_locations = var.node_locations
-
-  enable_shielded_nodes = true
-
-  remove_default_node_pool = true
-  initial_node_count       = 1
-
-  addons_config{
-    gce_persistent_disk_csi_driver_config {
-      enabled = true
-    }
-  }
-
-}
-
-resource "google_container_node_pool" "testing-nodepool" {
-  name       = "testing-nodepool"
-  cluster    = google_container_cluster.testing-cluster.id
-  node_count = 1
-
-  node_config {
-
-    preemptible = false
-
-    #machine_type = "a2-highgpu-1g"
-    machine_type = "g2-standard-16"
-
-    gvnic {
-      enabled = true
-    }
-
-    guest_accelerator {
-      #type  = "nvidia-tesla-a100"
-      type  = "nvidia-l4"
-      count = 1
-      gpu_sharing_config {
-        gpu_sharing_strategy       = "TIME_SHARING"
         max_shared_clients_per_gpu = 16
       }
     }
@@ -157,3 +100,60 @@ resource "google_container_node_pool" "testing-nodepool" {
 
   }
 }
+
+# resource "google_container_cluster" "testing-cluster" {
+
+#   name           = "testing-cluster"
+#   location       = var.location
+#   node_locations = var.node_locations
+
+#   enable_shielded_nodes = true
+
+#   remove_default_node_pool = true
+#   initial_node_count       = 1
+
+#   addons_config{
+#     gce_persistent_disk_csi_driver_config {
+#       enabled = true
+#     }
+#   }
+
+# }
+
+# resource "google_container_node_pool" "testing-nodepool" {
+#   name       = "testing-nodepool"
+#   cluster    = google_container_cluster.testing-cluster.id
+#   node_count = 1
+
+#   node_config {
+
+#     preemptible = false
+
+#     #machine_type = "a2-highgpu-1g"
+#     machine_type = "g2-standard-16"
+
+#     gvnic {
+#       enabled = true
+#     }
+
+#     guest_accelerator {
+#       #type  = "nvidia-tesla-a100"
+#       type  = "nvidia-l4"
+#       count = 1
+#       gpu_sharing_config {
+#         gpu_sharing_strategy       = "TIME_SHARING"
+#         max_shared_clients_per_gpu = 16
+#       }
+#     }
+
+#     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
+#     service_account = google_service_account.zenotta-node-service-account.email
+#     oauth_scopes = [
+#       "https://www.googleapis.com/auth/cloud-platform",
+#       "https://www.googleapis.com/auth/logging.write",
+#       "https://www.googleapis.com/auth/monitoring",
+#       "https://www.googleapis.com/auth/devstorage.read_only"
+#     ]
+
+#   }
+# }
