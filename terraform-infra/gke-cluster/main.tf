@@ -112,8 +112,6 @@ resource "google_container_cluster" "testing-cluster" {
   remove_default_node_pool = true
   initial_node_count       = 1
 
-  networking_mode = "VPC_NATIVE"
-
   addons_config{
     gce_persistent_disk_csi_driver_config {
       enabled = true
