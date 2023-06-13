@@ -9,7 +9,7 @@ terraform {
 }
 
 resource "helm_release" "zenotta-miner-release" {
-  count      = 8
+  count      = length(var.miners)
   name       = "zenotta-miner-release-${var.nodeIndex}-${count.index}"
   chart      = "../helm/miner-chart"
   

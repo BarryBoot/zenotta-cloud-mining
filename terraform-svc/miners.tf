@@ -5,7 +5,7 @@
 variable "zenottaMiners" {
     type = list
     default = [
-        # Node 0
+        # Set 0
         [
             {
                 owner = "barry-botha"
@@ -48,7 +48,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-        # Node 1
+        # Set 1
         [
             {
                 owner = "jud-mathias"
@@ -91,7 +91,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-        # Node 3
+        # Set 3
         [
             {
                 owner = "perry-eagles"
@@ -134,7 +134,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-        # Node 4
+        # Set 4
         [
             {
                 owner = "mervyn-eagles"
@@ -177,7 +177,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-        # Node 5
+        # Set 5
         [
             {
                 owner = "mervyn-eagles"
@@ -220,7 +220,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-        # Node 6
+        # Set 6
         [
             {
                 owner = "mervyn-eagles"
@@ -263,7 +263,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-        # Node 7
+        # Set 7
         [
             {
                 owner = "mervyn-eagles"
@@ -306,7 +306,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-        # Node 8
+        # Set 8
         [
             {
                 owner = "mervyn-eagles"
@@ -349,7 +349,7 @@ variable "zenottaMiners" {
                 period = "1-year"
             }
         ],
-        # Node 9
+        # Set 9
         [
             {
                 owner = "mervyn-eagles"
@@ -391,25 +391,27 @@ variable "zenottaMiners" {
                 api_key = "API_KEY"
                 period = "1-year"
             }
+        ],
+        # Set 10
+        [
+            {
+                owner = "hannes-botha"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "hannes-botha"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "hannes-botha"
+                api_key = "API_KEY"
+                period = "1-year"
+            }
         ]
     ]
 }
 
-# Node 10
-        # [
-        #     {
-        #         owner = "hannes-botha"
-        #         api_key = "API_KEY"
-        #         period = "1-year"
-        #     },
-        #     {
-        #         owner = "hannes-botha"
-        #         api_key = "API_KEY"
-        #         period = "1-year"
-        #     },
-        #     {
-        #         owner = "hannes-botha"
-        #         api_key = "API_KEY"
-        #         period = "1-year"
-        #     }
-        # ]
+
+    
