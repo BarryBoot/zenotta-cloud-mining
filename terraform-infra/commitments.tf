@@ -50,6 +50,11 @@ resource "google_compute_region_commitment" "zenotta-mining-commitment" {
   category = "MACHINE"
   region   = var.region
 
+  depends_on = [
+    google_compute_reservation.zenotta-mining-reservation-zone-a,
+    google_compute_reservation.zenotta-mining-reservation-zone-b
+  ]
+
   resources {
     type   = "VCPU"
     amount = "64"
