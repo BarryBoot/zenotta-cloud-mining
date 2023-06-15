@@ -14,7 +14,7 @@ resource "google_compute_reservation" "zenotta-mining-reservation-zone-a" {
         accelerator_count = 1
       }
       local_ssds {
-        disk_size_gb = "100"
+        disk_size_gb = 100
       }
 
     }
@@ -39,7 +39,7 @@ resource "google_compute_reservation" "zenotta-mining-reservation-zone-b" {
         accelerator_count = 1
       }
       local_ssds {
-        disk_size_gb = "100"
+        disk_size_gb = 100
       }
 
     }
