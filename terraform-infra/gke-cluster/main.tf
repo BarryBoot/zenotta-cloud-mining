@@ -2,7 +2,7 @@ terraform {
   required_providers {
     google = {
       source = "hashicorp/google"
-      version = "4.65.2"
+      version = "4.69.1"
     }
 
     kubernetes = {
@@ -97,6 +97,33 @@ resource "google_container_node_pool" "default" {
       "https://www.googleapis.com/auth/devstorage.read_only"
     ]
 
+  }
+}
+
+resource "google_compute_region_commitment" "zenotta-mining-commitment" {
+
+  name = "zenotta-mining-commitment"
+  plan = "TWELVE_MONTH"
+  type = "GRAPHICS_OPTIMIZED_G2"
+  category = "MACHINE"
+  region = var.region
+
+  resources {
+      type = "VCPU"
+      amount = "64"
+  }
+  resources {
+      type = "MEMORY"
+      amount = "256"
+  }
+  resources {
+      type = "ACELLERATOR"
+      amount = "4"
+      accelerator_type = "nvidia-l4"
+  }
+  resources {
+    type = "LOCAL_SSD"
+    amount = 4
   }
 }
 
