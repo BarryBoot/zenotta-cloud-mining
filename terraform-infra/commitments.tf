@@ -18,17 +18,10 @@ resource "google_compute_reservation" "zenotta-mining-reservation-zone-a" {
 
   }
 
-  share_settings {
-    share_type = "SPECIFIC_PROJECTS"
-    project_map {
-      id = "projects/${var.projectId}"
-    }
-  }
-
 }
 
 resource "google_compute_reservation" "zenotta-mining-reservation-zone-b" {
-  name = "zenotta-mining-reservation-zone-a"
+  name = "zenotta-mining-reservation-zone-b"
   zone = "us-central1-b"
 
   specific_reservation {
@@ -41,17 +34,10 @@ resource "google_compute_reservation" "zenotta-mining-reservation-zone-b" {
       guest_accelerators {
         accelerator_type  = "nvidia-l4"
         accelerator_count = 1
-      }
+      } 
 
     }
 
-  }
-
-  share_settings {
-    share_type = "SPECIFIC_PROJECTS"
-    project_map {
-      id = "projects/${var.projectId}"
-    }
   }
 
 }
@@ -60,7 +46,7 @@ resource "google_compute_region_commitment" "zenotta-mining-commitment" {
 
   name     = "zenotta-mining-commitment"
   plan     = "TWELVE_MONTH"
-  type     = "GRAPHICS_OPTIMIZED_G2"
+  type     = "GRAPHICS_OPTIMIZED"
   category = "MACHINE"
   region   = var.region
 
@@ -75,7 +61,7 @@ resource "google_compute_region_commitment" "zenotta-mining-commitment" {
   }
   resources {
     type   = "MEMORY"
-    amount = "256"
+    amount = "262144"
   }
   resources {
     type             = "ACCELERATOR"
