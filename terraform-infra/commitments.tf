@@ -1,5 +1,5 @@
-resource "google_compute_reservation" "zenotta-mining-l4-reservation-zone-a" {
-  name = "zenotta-mining-l4-reservation-zone-a"
+resource "google_compute_reservation" "zenotta-mining-reservation-zone-a" {
+  name = "zenotta-mining-reservation-zone-a"
   zone = "us-central1-a"
 
   specific_reservation {
@@ -23,8 +23,8 @@ resource "google_compute_reservation" "zenotta-mining-l4-reservation-zone-a" {
 
 }
 
-resource "google_compute_reservation" "zenotta-mining-l4-reservation-zone-b" {
-  name = "zenotta-mining-l4-reservation-zone-a"
+resource "google_compute_reservation" "zenotta-mining-reservation-zone-b" {
+  name = "zenotta-mining-reservation-zone-a"
   zone = "us-central1-b"
 
   specific_reservation {
