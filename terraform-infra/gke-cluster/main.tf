@@ -1,20 +1,20 @@
 terraform {
   required_providers {
     google = {
-      source = "hashicorp/google"
+      source  = "hashicorp/google"
       version = "4.69.1"
     }
 
     kubernetes = {
-      source = "hashicorp/kubernetes"
+      source  = "hashicorp/kubernetes"
       version = "2.20.0"
     }
   }
 }
 
 resource "google_service_account" "zenotta-node-service-account" {
- account_id   = "zenotta-node-service-account"
- display_name = "zenotta-node-service-account"
+  account_id   = "zenotta-node-service-account"
+  display_name = "zenotta-node-service-account"
 }
 
 resource "google_container_cluster" "default" {
@@ -23,15 +23,15 @@ resource "google_container_cluster" "default" {
   location       = var.location
   node_locations = var.node_locations
 
-  network    = var.network_id
-  subnetwork = var.subnetwork_id
+  network               = var.network_id
+  subnetwork            = var.subnetwork_id
   enable_shielded_nodes = true
 
   remove_default_node_pool = true
   initial_node_count       = 1
 
   networking_mode = "VPC_NATIVE"
-  
+
   ip_allocation_policy {
     cluster_secondary_range_name  = "pod-range"
     services_secondary_range_name = "service-range"
@@ -49,7 +49,7 @@ resource "google_container_cluster" "default" {
     }
   }
 
-  addons_config{
+  addons_config {
     gce_persistent_disk_csi_driver_config {
       enabled = true
     }
@@ -102,27 +102,27 @@ resource "google_container_node_pool" "default" {
 
 resource "google_compute_region_commitment" "zenotta-mining-commitment" {
 
-  name = "zenotta-mining-commitment"
-  plan = "TWELVE_MONTH"
-  type = "GRAPHICS_OPTIMIZED_G2"
+  name     = "zenotta-mining-commitment"
+  plan     = "TWELVE_MONTH"
+  type     = "GRAPHICS_OPTIMIZED_G2"
   category = "MACHINE"
-  region = var.region
+  region   = var.region
 
   resources {
-      type = "VCPU"
-      amount = "64"
+    type   = "VCPU"
+    amount = "64"
   }
   resources {
-      type = "MEMORY"
-      amount = "256"
+    type   = "MEMORY"
+    amount = "256"
   }
   resources {
-      type = "ACELLERATOR"
-      amount = "4"
-      accelerator_type = "nvidia-l4"
+    type             = "ACCELERATOR"
+    amount           = "4"
+    accelerator_type = "nvidia-l4"
   }
   resources {
-    type = "LOCAL_SSD"
+    type   = "LOCAL_SSD"
     amount = 4
   }
 }
