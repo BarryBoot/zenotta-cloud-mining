@@ -18,6 +18,14 @@ resource "google_compute_reservation" "zenotta-mining-reservation-zone-a" {
 
   }
 
+  share_settings {
+    share_type = "SPECIFIC_PROJECTS"
+    project_map {
+        id = "projects/${var.projectId}"
+        project_id = var.projectId
+    }
+  }
+
 }
 
 resource "google_compute_reservation" "zenotta-mining-reservation-zone-b" {
