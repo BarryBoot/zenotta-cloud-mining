@@ -100,33 +100,6 @@ resource "google_container_node_pool" "default" {
   }
 }
 
-resource "google_compute_region_commitment" "zenotta-mining-commitment" {
-
-  name     = "zenotta-mining-commitment"
-  plan     = "TWELVE_MONTH"
-  type     = "GRAPHICS_OPTIMIZED_G2"
-  category = "MACHINE"
-  region   = var.region
-
-  resources {
-    type   = "VCPU"
-    amount = "64"
-  }
-  resources {
-    type   = "MEMORY"
-    amount = "256"
-  }
-  resources {
-    type             = "ACCELERATOR"
-    amount           = "4"
-    accelerator_type = "nvidia-l4"
-  }
-  resources {
-    type   = "LOCAL_SSD"
-    amount = 4
-  }
-}
-
 # resource "google_container_cluster" "testing-cluster" {
 
 #   name           = "testing-cluster"
