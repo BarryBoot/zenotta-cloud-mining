@@ -408,6 +408,16 @@ variable "zenottaMiners" {
                 owner = "hannes-botha"
                 api_key = "API_KEY"
                 period = "1-year"
+            },
+            {
+                owner = "anton-keet"
+                api_key = "API_KEY"
+                period = "1-year"
+            },
+            {
+                owner = "anton-keet"
+                api_key = "API_KEY"
+                period = "1-year"
             }
         ]
     ]
