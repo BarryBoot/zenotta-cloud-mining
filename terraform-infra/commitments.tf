@@ -13,9 +13,6 @@ resource "google_compute_reservation" "zenotta-mining-reservation-zone-a" {
         accelerator_type  = "nvidia-l4"
         accelerator_count = 1
       }
-      local_ssds {
-        disk_size_gb = "100GB"
-      }
 
     }
 
@@ -37,9 +34,6 @@ resource "google_compute_reservation" "zenotta-mining-reservation-zone-b" {
       guest_accelerators {
         accelerator_type  = "nvidia-l4"
         accelerator_count = 1
-      }
-      local_ssds {
-        disk_size_gb = "100GB"
       }
 
     }
@@ -68,9 +62,5 @@ resource "google_compute_region_commitment" "zenotta-mining-commitment" {
     type             = "ACCELERATOR"
     amount           = "4"
     accelerator_type = "nvidia-l4"
-  }
-  resources {
-    type   = "LOCAL_SSD"
-    amount = "400"
   }
 }
