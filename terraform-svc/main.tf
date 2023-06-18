@@ -1,15 +1,8 @@
-# Configure kubernetes provider with Oauth2 access token.
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config
-# This fetches a new token, which will expire in 1 hour.
-data "google_client_config" "default" {
-  # depends_on = [module.gke-cluster]
-}
+data "google_client_config" "default" {}
 
-# Defer reading the cluster data until the GKE cluster exists.
 data "google_container_cluster" "default" {
   name       = local.cluster_name
   location   = var.location
-  # depends_on = [module.gke-cluster]
 }
 
 provider "helm" {
@@ -29,9 +22,9 @@ module "zenotta-nodes" {
 module "zenotta-miners" {
   depends_on = [module.zenotta-nodes]
   source     = "./miners"
-  count      = length(var.zenottaMiners)
+  count      = length(local.zenottaMiners)
   nodeIndex  = count.index
-  miners     = var.zenottaMiners[count.index]
+  miners     = local.zenottaMiners[count.index]
   region     = var.region
   projectId  = var.projectId
 }
