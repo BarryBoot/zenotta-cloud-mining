@@ -5,6 +5,7 @@ GOOGLE_CREDENTIALS
 .DS_Store
 docker-compose.yml
 age-key.txt
+public-age-key.txt
 scripts
 miners.json
 miners.tf
