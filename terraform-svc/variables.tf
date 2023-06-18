@@ -51,7 +51,7 @@ variable "replica_zones" {
 
 locals {
   cluster_name = "zenotta-mining-cluster"
-  zenottaMiners = jsondecode(data.sops_file.zenottaMiners.raw)
+  zenottaMiners = jsondecode(data.sops_file.zenottaMiners.raw).zenottaMiners
 }
 
 # secrets = yamldecode(nonsensitive(data.sops_file.secrets.raw))
