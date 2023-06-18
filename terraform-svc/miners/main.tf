@@ -19,11 +19,11 @@ resource "helm_release" "zenotta-miner-release" {
   }
   set {
     name = "miner.port" 
-    value = var.nodeIndex <= 10 ? "123${var.nodeIndex}${count.index}" : "23${var.nodeIndex}${count.index}"
+    value = var.nodeIndex < 10 ? "123${var.nodeIndex}${count.index}" : "31${var.nodeIndex}${count.index}"
   }
   set {
     name = "miner.user_port"
-    value = var.nodeIndex <= 10 ? "236${var.nodeIndex}${count.index}" : "36${var.nodeIndex}${count.index}"
+    value = var.nodeIndex < 10 ? "236${var.nodeIndex}${count.index}" : "63${var.nodeIndex}${count.index}"
   }
   set {
     name = "miner.api_key"
