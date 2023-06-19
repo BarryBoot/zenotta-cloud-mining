@@ -1,0 +1,16 @@
+# DB mode
+miner_db_mode = { Live = 0 }
+
+# API Port
+miner_api_port = 3000
+
+# Will need to get replaced with a valid API key when whitelisting is activated
+mining_api_key = "YOUR_API_KEY"
+
+# testnet
+[[compute_nodes]]
+address = "34.209.131.212:12300"
+
+# This miner node instance
+[[miner_nodes]]
+address = "127.0.0.1:12340"
