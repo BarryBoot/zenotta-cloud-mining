@@ -27,7 +27,7 @@ resource "helm_release" "zenotta-miner-release" {
   }
   set {
     name = "miner.api_key"
-    value = "${var.miners[count.index].api_key}-${var.nodeIndex}${count.index}"
+    value = "${var.miners[count.index].api_key}"
   }
   set {
     name = "miner.owner"
