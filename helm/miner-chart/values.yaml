@@ -11,15 +11,15 @@ miner:
   period: "5-month"
   api_key: "API_KEY"
   node_name: "nodeName"
-  disk_name: "diskName"
+  config: "/etc/node_settings.toml"
   image:
     repository: ghcr.io/barryboot/zenotta-cloud-mining
     tag: main
   limits:
-    memory: 4Gi
-    cpu: 1500m
+    memory: 2Gi
+    cpu: 750m
   requests:
-    memory: 3.5Gi
-    cpu: 1000m
+    memory: 1.75Gi
+    cpu: 500m
   configMap:
     RUST_LOG: "info,debug"
